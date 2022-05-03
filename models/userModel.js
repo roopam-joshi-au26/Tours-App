@@ -102,7 +102,7 @@ userSchema.methods.createPasswordResetToken = function() {
     .update(resetToken)
     .digest('hex');
 
-  console.log({ resetToken }, this.passwordResetToken);
+  // console.log({ resetToken }, this.passwordResetToken);
   //times to reset password
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
   //to send token through email 
