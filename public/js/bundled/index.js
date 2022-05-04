@@ -1183,7 +1183,7 @@ const signup = async (name, email, password, passwordConfirm)=>{
         console.log(name, email, password, passwordConfirm);
         const res = await _axiosDefault.default({
             method: 'POST',
-            url: 'http://localhost:3000/api/v1/users/signup',
+            url: `${window.location.origin}/api/v1/users/signup`,
             data: {
                 name,
                 email,
@@ -1191,6 +1191,7 @@ const signup = async (name, email, password, passwordConfirm)=>{
                 passwordConfirm
             }
         });
+        // let U =`${window.location.origin}/api/v1/admin/user/${valueSearch}`
         if (res.data.status === 'success') {
             _alerts.showAlert('success', 'signed up in successfully!');
             window.setTimeout(()=>{
