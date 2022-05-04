@@ -6,7 +6,7 @@ export const login = async (email, password) => {
   try{
     const res = await axios({
       method: 'POST',
-      url: '/login',
+      url: 'api/v1/users/login',
       data: {
         email,
         password
@@ -16,8 +16,7 @@ export const login = async (email, password) => {
     if (res.data.status === 'success') {
       showAlert('success','Logged in successfully!');
       window.setTimeout(() => {
-        // location.assign('/');
-        console.log('success')
+        location.assign('/');
       }, 1500);
     }   
   }catch(err) {

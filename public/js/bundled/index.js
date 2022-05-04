@@ -1183,7 +1183,7 @@ const signup = async (name, email, password, passwordConfirm)=>{
         console.log(name, email, password, passwordConfirm);
         const res = await _axiosDefault.default({
             method: 'POST',
-            url: `${window.location.origin}/api/v1/users/signup`,
+            url: '/api/v1/users/signup',
             data: {
                 name,
                 email,
@@ -4422,12 +4422,13 @@ const login = async (email, password)=>{
     try {
         const res = await _axiosDefault.default({
             method: 'POST',
-            url: '/api/v1/users/login',
+            url: 'api/v1/users/login',
             data: {
                 email,
                 password
             }
         });
+        console.log(res.data);
         if (res.data.status === 'success') {
             _alerts.showAlert('success', 'Logged in successfully!');
             window.setTimeout(()=>{
