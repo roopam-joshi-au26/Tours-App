@@ -11,7 +11,7 @@ module.exports = class Email{
     }
 
     newTransport(){
-       if(process.env.NODE_ENV === 'production')
+        if(process.env.NODE_ENV === 'development')
         return nodemailer.createTransport({
             service: 'SendinBlue',
             auth:{
@@ -19,15 +19,6 @@ module.exports = class Email{
                 pass: process.env.SENDINBLUE_PASSWORD
             }
         });
-
-        return nodemailer.createTransport({
-            host: process.env.EMAIL_HOST,
-            port: process.env.EMAIL_PORT,
-            auth: {
-              user: process.env.EMAIL_USERNAME,
-              pass: process.env.EMAIL_PASSWORD
-            }
-          });
     }
 
     //Send the actual email
