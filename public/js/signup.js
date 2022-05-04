@@ -7,7 +7,7 @@ export const signup = async (name, email, password, passwordConfirm) => {
     console.log(name, email, password, passwordConfirm)
     const res = await axios({
       method: 'POST',
-      url: '/api/v1/users/signup',
+      url: `${window.location.origin}/api/v1/users/signup`,
       data: {
         name,
         email,
@@ -15,6 +15,8 @@ export const signup = async (name, email, password, passwordConfirm) => {
         passwordConfirm
       }
     });
+
+    // let U =`${window.location.origin}/api/v1/admin/user/${valueSearch}`
 
     if (res.data.status === 'success') {
       showAlert('success', 'signed up in successfully!');
