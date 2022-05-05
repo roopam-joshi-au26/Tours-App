@@ -7,8 +7,8 @@ export const signup = async (name, email, password, passwordConfirm) => {
     console.log(name, email, password, passwordConfirm)
     const res = await axios({
       method: 'POST',
-      // url: '/api/v1/users/signup',
-      url: `${window.location.origin}/api/v1/admin/user/signup`,
+      url: '/api/v1/users/signup',
+      // url: `${window.location.origin}/api/v1/admin/user/signup`,
       data: {
         name,
         email,
